@@ -16,13 +16,13 @@ namespace CreateMyList
 
         public void Add(User addedUser)
         {
-            Debug.WriteLine("Add metodu");
+            Debug.WriteLine("Add method");
             users.Add(addedUser);
         }
 
         public IEnumerator GetEnumerator()
         {
-            Debug.WriteLine("GetEnumerator metodu");
+            Debug.WriteLine("GetEnumerator method");
 
             return new UserIEnumerator(users);
         }
@@ -38,36 +38,36 @@ namespace CreateMyList
 
             public UserIEnumerator(List<User> userList)
             {
-                Debug.WriteLine("UserIEnumerator metodu");
+                Debug.WriteLine("UserIEnumerator method");
                 users = userList;
+            }
+
+            public bool MoveNext()
+            {
+                index++;
+                Debug.WriteLine($"MoveNext method index:{index}");
+
+                return (index < users.Count);
             }
 
             public object Current
             {
                 get
                 {
-                    Debug.WriteLine("Current metodu");
+                    Debug.WriteLine($"Current method: {users[index]}");
                     return users[index];
                 }
+            }
+
+            public void Reset()
+            {
+                Debug.WriteLine("Reset method");
+                index = -1;
             }
 
             public object GetCurrent()
             {
                 throw new System.NotImplementedException();
-            }
-
-            public bool MoveNext()
-            {
-                index++;
-                Debug.WriteLine($"MoveNext metodu index:{index}");
-
-                return (index < users.Count);
-            }
-
-            public void Reset()
-            {
-                Debug.WriteLine("Reset metodu");
-                index = -1;
             }
         }
     }

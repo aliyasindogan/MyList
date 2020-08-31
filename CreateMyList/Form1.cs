@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CreateMyList
@@ -20,9 +14,10 @@ namespace CreateMyList
             userList.Add(new User { UserName = "ali" });
             userList.Add(new User { UserName = "yasin" });
             userList.Add(new User { UserName = "doğan" });
-
+            StringBuilder sb = new StringBuilder();
             foreach (var item in userList)
             {
+                richTextBox1.AppendText(item.ToString() + Environment.NewLine);
                 Debug.WriteLine(item);
             }
         }
