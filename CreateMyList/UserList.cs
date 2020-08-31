@@ -22,8 +22,7 @@ namespace CreateMyList
 
         public IEnumerator GetEnumerator()
         {
-            Debug.WriteLine("GetEnumerator method");
-
+            Debug.WriteLine("GetEnumerator Interface Method");
             return new UserIEnumerator(users);
         }
 
@@ -38,7 +37,7 @@ namespace CreateMyList
 
             public UserIEnumerator(List<User> userList)
             {
-                Debug.WriteLine("UserIEnumerator method");
+                Debug.WriteLine("UserIEnumerator constroctor");
                 users = userList;
             }
 
